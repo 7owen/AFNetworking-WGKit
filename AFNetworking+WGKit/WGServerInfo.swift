@@ -17,6 +17,14 @@ public struct WGServerInfo {
 }
 
 public extension WGServerInfo {
+    public init(serverName: String, scheme: String, host: String, port: Int, basePath: String) {
+        self.serverName = serverName
+        self.scheme = scheme
+        self.host = host
+        self.port = port
+        self.basePath = basePath
+    }
+    
     public init?(_ serverName: String, url: String) {
         if let aUrl = URL(string: url) {
             self.init(serverName:serverName, scheme:aUrl.scheme, host:aUrl.host, port:aUrl.port, basePath:aUrl.path)

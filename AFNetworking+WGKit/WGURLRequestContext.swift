@@ -29,6 +29,17 @@ public struct WGURLRequestContext {
  
 public extension WGURLRequestContext {
     
+    public init(serverInfo: WGServerInfo, path: String? = nil, user: String? = nil, password: String? = nil, method: String, parameters: [String:String]? = nil, customHeader: [String:String]? = nil, customBody: Data? = nil) {
+        self.serverInfo = serverInfo
+        self.path = path
+        self.user = user
+        self.password = password
+        self.method = method
+        self.parameters = parameters
+        self.customHeader = customHeader
+        self.customBody = customBody
+    }
+    
     public init?(url: String) {
         guard let aUrl = URL(string: url) else {
             return nil
