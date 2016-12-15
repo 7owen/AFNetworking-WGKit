@@ -9,27 +9,27 @@
 import Foundation
 import AFNetworking
  
-let kFileInfoDataKey = "kFileInfoDataKey"
-let kFileInfoNameKey = "kFileInfoNameKey"
-let kFileInfoFileNameKey = "kFileInfoFileNameKey"
-let kFileInfoMimeTypeKey = "kFileInfoMimeTypeKey"
+public let kFileInfoDataKey = "kFileInfoDataKey"
+public let kFileInfoNameKey = "kFileInfoNameKey"
+public let kFileInfoFileNameKey = "kFileInfoFileNameKey"
+public let kFileInfoMimeTypeKey = "kFileInfoMimeTypeKey"
  
 public struct WGURLRequestContext {
-    var serverInfo: WGServerInfo
-    var path: String?
-    var user: String?
-    var password: String?
-    var method: String
-    var parameters: [String:String]?
-    var customHeader: [String:String]?
-    var customBody: Data?
-    var fileInfo: [String:AnyObject]?
-    var connectIPAddress: String?
+    public var serverInfo: WGServerInfo
+    public var path: String?
+    public var user: String?
+    public var password: String?
+    public var method: String
+    public var parameters: [String:String]?
+    public var customHeader: [String:String]?
+    public var customBody: Data?
+    public var fileInfo: [String:AnyObject]?
+    public var connectIPAddress: String?
 }
  
 public extension WGURLRequestContext {
     
-    init?(url: String) {
+    public init?(url: String) {
         guard let aUrl = URL(string: url) else {
             return nil
         }
@@ -47,11 +47,11 @@ public extension WGURLRequestContext {
         }
     }
     
-    func generateURLRequest() -> URLRequest {
+    public func generateURLRequest() -> URLRequest {
         return generateURLRequest(allowCustomIP: true)
     }
     
-    func generateURL() -> URL? {
+    public func generateURL() -> URL? {
         return generateURLRequest(allowCustomIP: false).url
     }
     

@@ -9,21 +9,21 @@
 import UIKit
 import AFNetworking
 
-typealias WGURLSessionEditRequest = (URLRequest) -> URLRequest
-typealias WGURLSessionCompletionHandler = (HTTPURLResponse?, Any?, Error?) -> Void
-typealias WGURLSessionErrorPreHandler = (HTTPURLResponse?, Any?, Error?) -> Error
-typealias WGURLSessionResponsePreHandler = (HTTPURLResponse?, Any?, Error?) -> Any
+public typealias WGURLSessionEditRequest = (URLRequest) -> URLRequest
+public typealias WGURLSessionCompletionHandler = (HTTPURLResponse?, Any?, Error?) -> Void
+public typealias WGURLSessionErrorPreHandler = (HTTPURLResponse?, Any?, Error?) -> Error
+public typealias WGURLSessionResponsePreHandler = (HTTPURLResponse?, Any?, Error?) -> Any
 
 public protocol WGURLSessionDomainResolution {
     func query(with domain: String) -> String?
 }
 
-public final class WGURLSession: NSObject {
-    static var defaultManager: AFHTTPSessionManager?
-    static var defaultErrorHandlerBlock: WGURLSessionErrorPreHandler?
-    static var defaultResponseHandlerBlock: WGURLSessionResponsePreHandler?
+final public class WGURLSession: NSObject {
+    public static var defaultManager: AFHTTPSessionManager?
+    public static var defaultErrorHandlerBlock: WGURLSessionErrorPreHandler?
+    public static var defaultResponseHandlerBlock: WGURLSessionResponsePreHandler?
     
-    static func request(_ request: WGURLSessionRequest, sessionManager: AFHTTPSessionManager? = defaultManager, errorPreHandler: WGURLSessionErrorPreHandler? = defaultErrorHandlerBlock, responsePreHandler:WGURLSessionResponsePreHandler? = defaultResponseHandlerBlock, domainResolution: WGURLSessionDomainResolution? = nil, completionHandler:@escaping WGURLSessionCompletionHandler) {
+    public static func request(_ request: WGURLSessionRequest, sessionManager: AFHTTPSessionManager? = defaultManager, errorPreHandler: WGURLSessionErrorPreHandler? = defaultErrorHandlerBlock, responsePreHandler:WGURLSessionResponsePreHandler? = defaultResponseHandlerBlock, domainResolution: WGURLSessionDomainResolution? = nil, completionHandler:@escaping WGURLSessionCompletionHandler) {
         
         var urlRequest:URLRequest?
         switch request {
@@ -79,7 +79,7 @@ public final class WGURLSession: NSObject {
     }
 }
 
-protocol WGURLSessionRequest {
+public protocol WGURLSessionRequest {
     
 }
 

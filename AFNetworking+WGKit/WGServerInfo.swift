@@ -9,15 +9,15 @@
 import Foundation
 
 public struct WGServerInfo {
-    var serverName: String
-    var scheme: String?
-    var host: String?
-    var port: Int?
-    var basePath: String
+    public var serverName: String
+    public var scheme: String?
+    public var host: String?
+    public var port: Int?
+    public var basePath: String
 }
 
 public extension WGServerInfo {
-    init?(_ serverName: String, url: String) {
+    public init?(_ serverName: String, url: String) {
         if let aUrl = URL(string: url) {
             self.init(serverName:serverName, scheme:aUrl.scheme, host:aUrl.host, port:aUrl.port, basePath:aUrl.path)
         } else {
@@ -25,7 +25,7 @@ public extension WGServerInfo {
         }
     }
     
-    func generateURL() -> URL? {
+    public func generateURL() -> URL? {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
