@@ -14,7 +14,7 @@ let kFileInfoNameKey = "kFileInfoNameKey"
 let kFileInfoFileNameKey = "kFileInfoFileNameKey"
 let kFileInfoMimeTypeKey = "kFileInfoMimeTypeKey"
  
-struct WGURLRequestContext {
+public struct WGURLRequestContext {
     var serverInfo: WGServerInfo
     var path: String?
     var user: String?
@@ -27,7 +27,7 @@ struct WGURLRequestContext {
     var connectIPAddress: String?
 }
  
- extension WGURLRequestContext {
+public extension WGURLRequestContext {
     
     init?(url: String) {
         guard let aUrl = URL(string: url) else {
@@ -121,4 +121,4 @@ struct WGURLRequestContext {
         url.append(serverInfo.basePath)
         return url
     }
- }
+}

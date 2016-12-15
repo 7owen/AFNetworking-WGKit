@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WGServerInfo {
+public struct WGServerInfo {
     var serverName: String
     var scheme: String?
     var host: String?
@@ -16,7 +16,7 @@ struct WGServerInfo {
     var basePath: String
 }
 
-extension WGServerInfo {
+public extension WGServerInfo {
     init?(_ serverName: String, url: String) {
         if let aUrl = URL(string: url) {
             self.init(serverName:serverName, scheme:aUrl.scheme, host:aUrl.host, port:aUrl.port, basePath:aUrl.path)

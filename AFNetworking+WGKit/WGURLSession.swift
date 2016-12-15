@@ -14,11 +14,11 @@ typealias WGURLSessionCompletionHandler = (HTTPURLResponse?, Any?, Error?) -> Vo
 typealias WGURLSessionErrorPreHandler = (HTTPURLResponse?, Any?, Error?) -> Error
 typealias WGURLSessionResponsePreHandler = (HTTPURLResponse?, Any?, Error?) -> Any
 
-protocol WGURLSessionDomainResolution {
+public protocol WGURLSessionDomainResolution {
     func query(with domain: String) -> String?
 }
 
-final class WGURLSession: NSObject {
+public final class WGURLSession: NSObject {
     static var defaultManager: AFHTTPSessionManager?
     static var defaultErrorHandlerBlock: WGURLSessionErrorPreHandler?
     static var defaultResponseHandlerBlock: WGURLSessionResponsePreHandler?
