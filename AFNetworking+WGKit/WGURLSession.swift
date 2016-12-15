@@ -23,7 +23,7 @@ final class WGURLSession: NSObject {
     static var defaultErrorHandlerBlock: WGURLSessionErrorPreHandler?
     static var defaultResponseHandlerBlock: WGURLSessionResponsePreHandler?
     
-    static func request<T:WGURLSessionRequest>(_ request: T, sessionManager: AFHTTPSessionManager? = defaultManager, errorPreHandler: WGURLSessionErrorPreHandler? = defaultErrorHandlerBlock, responsePreHandler:WGURLSessionResponsePreHandler? = defaultResponseHandlerBlock, domainResolution: WGURLSessionDomainResolution? = nil, completionHandler:@escaping WGURLSessionCompletionHandler) {
+    static func request(_ request: WGURLSessionRequest, sessionManager: AFHTTPSessionManager? = defaultManager, errorPreHandler: WGURLSessionErrorPreHandler? = defaultErrorHandlerBlock, responsePreHandler:WGURLSessionResponsePreHandler? = defaultResponseHandlerBlock, domainResolution: WGURLSessionDomainResolution? = nil, completionHandler:@escaping WGURLSessionCompletionHandler) {
         
         var urlRequest:URLRequest?
         switch request {
