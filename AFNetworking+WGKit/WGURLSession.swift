@@ -11,8 +11,8 @@ import AFNetworking
 
 public typealias WGURLSessionEditRequest = (URLRequest) -> URLRequest
 public typealias WGURLSessionCompletionHandler = (HTTPURLResponse?, Any?, Error?) -> Void
-public typealias WGURLSessionErrorPreHandler = (HTTPURLResponse?, Any?, Error?) -> Error
-public typealias WGURLSessionResponsePreHandler = (HTTPURLResponse?, Any?, Error?) -> Any
+public typealias WGURLSessionErrorPreHandler = (HTTPURLResponse?, Any?, Error?) -> Error?
+public typealias WGURLSessionResponsePreHandler = (HTTPURLResponse?, Any?, Error?) -> Any?
 
 public protocol WGURLSessionDomainResolution {
     func query(with domain: String) -> String?
