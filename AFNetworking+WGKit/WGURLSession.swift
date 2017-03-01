@@ -55,7 +55,7 @@ final public class WGURLSession: NSObject {
             
             let task = manager.dataTask(with: request, completionHandler: { (response, responseObj, error) in
                 guard let httpResponse = response as? HTTPURLResponse else {
-                    completionHandler(nil,nil,nil)
+                    completionHandler(nil,responseObj,error)
                     return
                 }
                 if error == nil {
@@ -69,7 +69,7 @@ final public class WGURLSession: NSObject {
                     if let errorHandlerBlock = errorPreHandler {
                         aError = errorHandlerBlock(httpResponse, responseObj, error)
                     }
-                    completionHandler(nil,nil,aError)
+                    completionHandler(httpResponse,responseObj,aError)
                 }
             })
             task.resume()
